@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { hero } from '@/data/portfolio'
+import { hero, profile } from '@/data/portfolio'
 
 // El primer botón es la acción principal; el resto, secundarias.
 const actions = hero.actions
@@ -9,6 +9,23 @@ const actions = hero.actions
   <section id="inicio" class="hero" aria-labelledby="hero-title">
     <div class="hero__inner container">
       <div class="hero__content">
+        <div class="hero__profile">
+          <div class="hero__photo-wrap">
+            <img
+              :src="profile.image"
+              :alt="profile.imageAlt"
+              class="hero__photo"
+              width="472"
+              height="472"
+              decoding="async"
+            />
+          </div>
+          <div class="hero__profile-text">
+            <p class="hero__greeting">Hola, soy</p>
+            <p class="hero__name">{{ profile.name }}</p>
+          </div>
+        </div>
+
         <p class="hero__roles">{{ hero.roles }}</p>
         <h1 id="hero-title" class="hero__title">{{ hero.title }}</h1>
         <p class="hero__subtitle">{{ hero.subtitle }}</p>
@@ -86,6 +103,49 @@ const actions = hero.actions
 
 .hero__content {
   min-width: 0;
+}
+
+.hero__profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero__photo-wrap {
+  flex-shrink: 0;
+  width: clamp(72px, 16vw, 96px);
+  aspect-ratio: 1;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: 0 12px 30px -12px rgba(79, 140, 255, 0.55);
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-bg);
+}
+
+.hero__profile-text {
+  min-width: 0;
+}
+
+.hero__greeting {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-accent-2);
+}
+
+.hero__name {
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
 }
 
 .hero__roles {

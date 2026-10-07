@@ -39,6 +39,14 @@ export interface ActionLink {
   href: string
 }
 
+// Perfil — foto y nombre completo (la imagen vive en /public/Perfil.jpg)
+export const profile = {
+  name: 'Jefferson Gervacio Quiñonez Aguirre',
+  role: 'Desarrollador Full Stack · Inteligencia Artificial · Automatización',
+  image: '/Perfil.jpg',
+  imageAlt: 'Retrato de Jefferson Gervacio Quiñonez Aguirre',
+}
+
 // Req 1 — Hero
 export const hero = {
   title: 'Construyo soluciones digitales para problemas reales.',
